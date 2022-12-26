@@ -28,5 +28,4 @@ Below is a quiz to review the recently covered material. Quizzes are not graded.
 React is a library used to render web pages efficiently.
 
 True [ ] 
-False [ ] git add .
-git commit -m "edits"
+False [ ]
