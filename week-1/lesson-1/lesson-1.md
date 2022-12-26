@@ -163,6 +163,10 @@ To install the required Node Library;
 
 This takes a while so be patient and wait until it finishes.
 
+**Caution!**
+
+If you are getting this error ```saveError ENOENT: no such file or directory, open '/Users/username/Desktop/React-Course/test/package.json```, that means you are not in the correct directory with a ```package.json file```. Please make sure you are in the correct directory.
+
 Now let's run the application.
 
 ```npm start```
@@ -172,6 +176,12 @@ By default, the application runs on localhost port 3000 with the address http://
 Your default browser should launch automatically. Open the browser console immediately. 
 
 ![](assets/create-react-app.png)
+
+**Tip!**
+
+You can stop this process by pressing ```Control + C``` in the terminal, but for now, keep the server running.
+
+While working on this course, you will want to have the ```npm start``` process running, since it takes care of packaging up files needed to view the project in your browser. When you make a change in the project, you will see new text appear in the terminal and the browser window that was launched will reload automatically. This is a process called hot reloading and is very useful when developing as it lets you see your changes very quickly.
 
 The source code of the application resides in the ```src``` folder. Let's simplify the default code so the contents of the file ```index.js``` look like:
 
@@ -222,3 +232,155 @@ ReactDOM.render(<App />, document.getElementById('root'))
 You may need to do the same for your other projects if the error pops up.
 
 
+#### Component
+
+
+The file ```App.js``` now defines a React component with the name ```App```. The command on the final line of file ```index.js```
+
+```
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+```
+renders its contents into the ```div```-element, defined in the file ```public/index.html```, having the ```id``` value ```'root'```.
+
+By default, the file ```public/index.html``` doesn't contain any HTML markup visible in the browser. You can try adding some HTML to the file. However, when using React, all content that needs to be rendered is usually defined as React **components**.
+
+Let's take a closer look at the code defining the **component**:
+
+```
+const App = () => (
+  <div>
+    <p>Hello world</p>
+  </div>
+)
+```
+
+As you probably guessed, the component will be rendered as a ```div```-tag, which wraps a ```p```-tag containing the text ```Hello world```.
+
+Technically the component is defined as a JavaScript function. The following is a function (which does not receive any parameters):
+
+```
+() => (
+  <div>
+    <p>Hello world</p>
+  </div>
+)
+```
+
+The function is then assigned to a constant variable ```App```:
+
+```const App = ...```
+
+There are a few ways to define functions in JavaScript. Here we will use arrow functions, which are described in a newer version of JavaScript known as ECMAScript 6, also called ES6.
+
+Because the function consists of only a single expression we have used a shorthand, which represents this piece of code:
+
+```
+const App = () => {
+  return (
+    <div>
+      <p>Hello world</p>
+    </div>
+  )
+}
+```
+
+In other words, the function returns the value of the expression.
+
+The function defining the component may contain any kind of JavaScript code. Modify your component to be as follows and observe what happens in the console:
+
+```
+const App = () => {
+  console.log('Hello from component')
+  return (
+    <div>
+      <p>Hello world</p>
+    </div>
+  )
+}
+```
+
+It is also possible to render dynamic content inside of a component.
+
+Modify the component as follows:
+
+```
+const App = () => {
+  const now = new Date()
+  const a = 10
+  const b = 20
+
+  return (
+    <div>
+      <p>Hello world, it is {now.toString()}</p>
+      <p>
+        {a} plus {b} is {a + b}
+      </p>
+    </div>
+  )
+}
+```
+
+Any JavaScript code within the curly braces is evaluated and the result of this evaluation is embedded into the defined place in the HTML produced by the component.
+
+## Rendering with React
+
+A React Element is the smallest building block in React. The virtual DOM is a tree structure comprised of a ```root``` element that contains other elements. This tree of virtual DOM elements is immutable, meaning it can't be changed after creation. This allows React to keep previous versions of the virtual DOM to compare against when updates are made to help ensure only the minimal amount of work is performed.
+
+### Project Structure
+
+Open up the ```ReactL01``` project you previously created. You will be following along in this lesson and adding code to this project. Under the public folder, you should see an ```index.html``` file. After opening the file, you should see the following:
+
+**index.html** file:
+
+```
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="bundle.js"></script>
+    </body>
+</html>
+
+```
+
+#### JSX
+
+
+It seems like React components are returning HTML markup. However, this is not the case. The layout of React components is mostly written using ```JSX```. Although ```JSX``` looks like HTML, we are actually dealing with a way to write JavaScript. Under the hood, ```JSX``` returned by React components is compiled into JavaScript.
+
+After compiling, our application looks like this:
+
+```
+const App = () => {
+  const now = new Date()
+  const a = 10
+  const b = 20
+  return React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'p', null, 'Hello world, it is ', now.toString()
+    ),
+    React.createElement(
+      'p', null, a, ' plus ', b, ' is ', a + b
+    )
+  )
+}
+```
+
+The compilation is handled by Babel. Projects created with ```create-react-app``` are configured to compile automatically. We will learn more about this topic a bit later in the course.
+
+It is also possible to write React as "pure JavaScript" without using JSX. Although, nobody with a sound mind would actually do so.
+
+In practice, JSX is much like HTML with the distinction that with JSX you can easily embed dynamic content by writing appropriate JavaScript within curly braces. The idea of JSX is quite similar to many templating languages, such as Thymeleaf used along with Java Spring, which are used on servers.
+
+JSX is "XML-like", which means that every tag needs to be closed. For example, a newline is an empty element, which in HTML can be written as follows:
+
+```<br>```
+
+but when writing JSX, the tag needs to be closed:
+
+```<br />```
