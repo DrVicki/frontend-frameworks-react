@@ -144,6 +144,81 @@ directory in your terminal.
 Great! Now you have a folder to house all of the projects for this course. Remember to create projects when asked and make sure they live in this folder!
 
 
+## Project Setup
 
+We will now start getting familiar with probably the most important topic of this course, namely the React-library. Let's start off by making a simple React application as well as getting to know the core concepts of React.
+
+The easiest way to get started by far is by using a tool called ```create-react-app```. It is possible (but not necessary) to install ```create-react-app``` on your machine if the ```npm``` tool that was installed along with Node has a version number of at least 5.3.
+
+Let's create an application called ```part1``` and navigate to its directory.
+
+```
+cd FEFReact
+npx create-react-app part1
+cd part1
+```
+To install the required Node Library;
+
+```npm install"
+
+This take a while so be patient and wait until it finishes.
+
+Now let's run the application.
+
+```npm start```
+
+By default, the application runs on localhost port 3000 with the address http://localhost:3000
+
+Your default browser should launch automatically. Open the browser console immediately. 
+
+![](assets/create-react-app.png)
+
+The source code of the application resides in the ```src``` folder. Let's simplify the default code so the contents of the file ```index.js``` look like:
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+import App from './App'
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+```
+
+and file ```App.js``` looks like this;
+
+```const App = () => (
+  <div>
+    <p>Hello world</p>
+  </div>
+)
+
+export default App
+```
+
+Delete the following files as we don't need them just yet. 
+
+-  ```App.css```, 
+- ```App.test.js```, 
+- ```index.css```, 
+- ```logo.svg```, 
+- ```setupTests.js``` and 
+- ```reportWebVitals.js``` 
+
+If you end up with the following error:
+
+![](assets/r18-error.png)
+
+You are using a React version older than the current version **18**.
+
+The solution is to change ```index.js``` as follows:
+
+```
+import ReactDOM from 'react-dom'
+import App from './App'
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+
+You may need to do the same for your other projects if the error pops up.
 
 
