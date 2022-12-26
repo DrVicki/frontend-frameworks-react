@@ -118,31 +118,28 @@ For this course, create a folder in your ```SoftwareDevelopment``` folder named 
 1. Open up your command prompt/terminal.
 2. Run the following to navigate to your Desktop
 
-```cd Desktop```
+	```cd Desktop```
 
-3. Next, navigate to the 
-
-```SoftwareDevelopment``` 
-
+3. Next, navigate to the ```SoftwareDevelopment``` 
 directory in your terminal.
 
-```cd SoftwareDevelopment```
+	```cd SoftwareDevelopment```
 
-	- You created this folder in your Front-End Foundations course. If you do not have this folder follow the directions below:
-		1. Create a root folder on your desktop and name it ```SoftwareDevelopment```.
+- You created this folder in your Front-End Foundations course. If you do not have this folder follow the directions below:
+	1. Create a root folder on your desktop and name it ```SoftwareDevelopment```.
 
 		```mkdir SoftwareDevelopment```
 
-		2. Next, navigate to the ```SoftwareDevelopment directory``` in your terminal.
+	2. Next, navigate to the ```SoftwareDevelopment directory``` in your terminal.
 
 		```cd SoftwareDevelopment```
 4. Create a new folder within your ```SoftwareDevelopment``` folder and name it ```FEFReact```. (This folder will hold all your coursework for this course)
 
-```mkdir FEFReact```
+	```mkdir FEFReact```
 
 5. Then, navigate to the ```FEFReact``` directory in your terminal.
 
-```cd FEFReact```
+	```cd FEFReact```
 
 Great! Now you have a folder to house all of the projects for this course. Remember to create projects when asked and make sure they live in this folder!
 
