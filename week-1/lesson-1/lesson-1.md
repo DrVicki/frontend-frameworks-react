@@ -159,9 +159,9 @@ cd part1
 ```
 To install the required Node Library;
 
-```npm install"
+```npm install```
 
-This take a while so be patient and wait until it finishes.
+This takes a while so be patient and wait until it finishes.
 
 Now let's run the application.
 
