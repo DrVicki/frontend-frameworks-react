@@ -115,31 +115,34 @@ Now that you have a general idea of what React is and how it works, the next ste
 
 For this course, create a folder in your ```SoftwareDevelopment``` folder named ```FEFReact```. Please add all projects to this folder to help keep yourself organized. You will be creating projects to practice the code from the lesson and projects for your Hands-On solutions. As you move through this course, you will be asked to create projects with specific names, so please add these projects into the ```FEFReact``` folder. To create this folder, follow the steps below:
 
-	1. Open up your command prompt/terminal.
+1. Open up your command prompt/terminal.
+2. Run the following to navigate to your Desktop
 
-	2. Run the following to navigate to your Desktop
+```cd Desktop```
 
-	```cd Desktop```
+3. Next, navigate to the 
 
-	3. Next, navigate to the ```SoftwareDevelopment``` directory in your terminal.
+```SoftwareDevelopment``` 
 
-	```cd SoftwareDevelopment```
+directory in your terminal.
 
-		- You created this folder in your Front-End Foundations course. If you do not have this folder follow the directions below:
-			1. Create a root folder on your desktop and name it ```SoftwareDevelopment```.
+```cd SoftwareDevelopment```
 
-			```mkdir SoftwareDevelopment```
+	- You created this folder in your Front-End Foundations course. If you do not have this folder follow the directions below:
+		1. Create a root folder on your desktop and name it ```SoftwareDevelopment```.
 
-			2. Next, navigate to the ```SoftwareDevelopment directory``` in your terminal.
+		```mkdir SoftwareDevelopment```
 
-			```cd SoftwareDevelopment```
-	4. Create a new folder within your ```SoftwareDevelopment``` folder and name it ```FEFReact```. (This folder will hold all your coursework for this course)
+		2. Next, navigate to the ```SoftwareDevelopment directory``` in your terminal.
 
-	```mkdir FEFReact```
+		```cd SoftwareDevelopment```
+4. Create a new folder within your ```SoftwareDevelopment``` folder and name it ```FEFReact```. (This folder will hold all your coursework for this course)
 
-	5. Then, navigate to the ```FEFReact``` directory in your terminal.
+```mkdir FEFReact```
 
-	```cd FEFReact```
+5. Then, navigate to the ```FEFReact``` directory in your terminal.
+
+```cd FEFReact```
 
 Great! Now you have a folder to house all of the projects for this course. Remember to create projects when asked and make sure they live in this folder!
 
