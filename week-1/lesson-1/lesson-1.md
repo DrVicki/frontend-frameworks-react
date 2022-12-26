@@ -28,4 +28,122 @@ Below is a quiz to review the recently covered material. Quizzes are not graded.
 React is a library used to render web pages efficiently.
 
 True [ ] 
+
 False [ ]
+
+Solution: True
+
+#### Question 2 of 6
+
+React manipulates the browser's DOM to match the shape of the content based upon the application state.
+
+True [ ] 
+
+False [ ]
+
+Solution: True
+
+#### Question 3 of 6
+
+Each time React renders a web page, only the minimal, necessary changes are made.
+
+True [ ] 
+
+False [ ]
+
+Solution: True
+
+#### Question 4 of 6
+
+React compares the virtual DOM with the actual browser DOM to determine what should be changed.
+
+True [ ] 
+
+False [ ]
+
+Solution: True
+
+#### Question 5 of 6
+
+With React, actions on a web page like clicking a button are routed through a _________________.
+
+	A. DOM
+	B. store
+	C. dispatcher
+	D. library
+
+Solution: C. dispatcher
+
+#### Question 6 of 6
+
+The state of your web application in React is referred to as the ______________.
+
+	A. DOM
+	B. store
+	C. dispatcher
+	D. library	
+
+Solution: B. store
+
+## Frameworks and Libraries
+
+You may have encountered the terms ```framework``` and ```library```. Both of these terms describe "code someone else wrote that is not part of your application". Generally speaking, a library is a collection of functionality meant to be integrated into your application. Each part of a library is relatively isolated and can be brought in piece-by-piece. Frameworks, on the other hand, work by having your application embedded inside them. In this way, frameworks dictate much, if not all, of how your application is structured. This has both benefits and drawbacks.
+
+### Benefits
+
+By dictating much of how your application will work, ```frameworks``` are great at taking shortcuts by providing simpler ways of adding difficult functionality to your projects. It also reduces the amount of work you need to get started on a project.
+
+```Libraries```, on the other hand, don't dictate how they are used. When working on a project, you choose how to bring them into your application and what parts you would like to use. As such, you must wire up all the necessary parts yourself, which often means getting started with a library is a bit slower.
+
+### Drawbacks
+
+When using ```frameworks```, decisions are made up front that allow and define the shortcuts to be taken in a project. By doing this, it will restrict the choices you have within your project. Conventions are great until you want to break them, and in some frameworks, stepping outside the dictated path can be quite tricky.
+
+```Libraries```, however, have very few built-in decisions, so you're at much greater liberty to use it just the way you want to. You can use a single function from a library or use all of what is provided. When using libraries, you also have the option to use multiple libraries together in ways the original authors had no intention of.
+
+### Metaphor
+
+Think of a ```framework``` as a workout class. You use the equipment the instructor wants you to use, and you do the exercises the instructor chooses. Compare this to going to a gym and having all the machines available to you. You decide what equipment to use and how to use it yourself. This is how ```Libraries``` work. The class is nice because you just show up and put in the work, but you trust the instructor has put together a reasonable routine. But just going to the gym and using the available equipment is useful because you get to work on exactly what you want, and for as long as you would like by making up your own workout.
+
+#### Review
+
+(Same as in original course)
+
+## React Setup
+
+Now that you have a general idea of what React is and how it works, the next step is to install a starter project provided for you. You will be working in this project throughout the next several lessons, so it is important to not skip this page.
+
+For this course, create a folder in your ```SoftwareDevelopment``` folder named ```FEFReact```. Please add all projects to this folder to help keep yourself organized. You will be creating projects to practice the code from the lesson and projects for your Hands-On solutions. As you move through this course, you will be asked to create projects with specific names, so please add these projects into the ```FEFReact``` folder. To create this folder, follow the steps below:
+
+	1. Open up your command prompt/terminal.
+
+	2. Run the following to navigate to your Desktop
+
+	```cd Desktop```
+
+	3. Next, navigate to the ```SoftwareDevelopment``` directory in your terminal.
+
+	```cd SoftwareDevelopment```
+
+		- You created this folder in your Front-End Foundations course. If you do not have this folder follow the directions below:
+			1. Create a root folder on your desktop and name it ```SoftwareDevelopment```.
+
+			```mkdir SoftwareDevelopment```
+
+			2. Next, navigate to the ```SoftwareDevelopment directory``` in your terminal.
+
+			```cd SoftwareDevelopment```
+	4. Create a new folder within your ```SoftwareDevelopment``` folder and name it ```FEFReact```. (This folder will hold all your coursework for this course)
+
+	```mkdir FEFReact```
+
+	5. Then, navigate to the ```FEFReact``` directory in your terminal.
+
+	```cd FEFReact```
+
+Great! Now you have a folder to house all of the projects for this course. Remember to create projects when asked and make sure they live in this folder!
+
+
+
+
+
