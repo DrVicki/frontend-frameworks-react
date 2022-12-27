@@ -15,6 +15,8 @@ React does not have an opinion on what dispatcher and store you should use, it o
 
 ## Virtual DOM
 
+![](assets/virtyal-dom.png)
+
 React is designed to use the ```render``` function to output content the page actually contains. This may involve adding elements, removing elements, or updating elements in-place. These are the kind of operations traditionally jQuery is used for. Unfortunately, making updates to the DOM can be slow, and multiple unnecessary updates can severely impact the responsiveness of a site, especially as the number of updates grows. This was one of the driving factors for motivating Facebook to develop **React**. With React they were able to minimize the amount of updates being performed and bring the performance of the page back to a reasonable point.
 
 To build a minimal list of operations to be performed on the DOM, React needs to to compare what is currently in the DOM to what should be there. To support this, the ```render``` function does **not** output HTML or make changes to the DOM directly. Instead, it outputs a data structure known as a **Virtual DOM**. This virtual version of the DOM is greatly simplified and very fast to work with. React then checks the virtual DOM against the real DOM in the browser and makes a list of updates to perform. Since DOM manipulation is a slow process, this ensures only elements genuinely changed are updated. There are many Virtual DOM based systems available in the JavaScript ecosystem, but **React** is by far the most commonly used.
@@ -332,8 +334,6 @@ Any JavaScript code within the curly braces ```{}``` is evaluated and the result
 
 A React Element is the smallest building block in React. The virtual DOM is a tree structure comprised of a ```root``` element that contains other elements.
 
-![](assets/virtyal-dom.png)
-
 
  This tree of virtual DOM elements is immutable, meaning it can't be changed after creation. This allows React to keep previous versions of the virtual DOM to compare against when updates are made to help ensure only the minimal amount of work is performed.
 
@@ -359,6 +359,7 @@ Open up the ```ReactL01``` project you previously created. You will be following
 
 #### JSX
 
+![](assets/jsx-js.png)
 
 It seems like React components are returning HTML markup. However, this is not the case. The layout of React components is mostly written using ```JSX```. Although ```JSX``` looks like HTML, we are actually dealing with a way to write JavaScript. Under the hood, ```JSX``` returned by React components is compiled into JavaScript.
 
