@@ -15,9 +15,9 @@ React does not have an opinion on what dispatcher and store you should use, it o
 
 ## Virtual DOM
 
-React makes certain the ```render``` function's output is what the page actually contains. This may involve adding elements, removing elements, or updating elements in-place. These are the kind of operations traditionally jQuery is used for. Unfortunately, making updates to the DOM can be slow, and multiple unnecessary updates can severely impact the responsiveness of a site, especially as the number of updates grows. This was one of the driving factors for motivating Facebook to develop **React**. With React they were able to minimize the amount of updates being performed and bring the performance of the page back to a reasonable point.
+React is designed to use the ```render``` function to output content the page actually contains. This may involve adding elements, removing elements, or updating elements in-place. These are the kind of operations traditionally jQuery is used for. Unfortunately, making updates to the DOM can be slow, and multiple unnecessary updates can severely impact the responsiveness of a site, especially as the number of updates grows. This was one of the driving factors for motivating Facebook to develop **React**. With React they were able to minimize the amount of updates being performed and bring the performance of the page back to a reasonable point.
 
-To build up a minimal list of operations to be performed on the DOM, React needs to be able to compare what is currently in the DOM to what should be there. To support this, the ```render``` function does not output HTML or make changes to the DOM directly. Instead, it outputs a data structure known as a **Virtual DOM**. This virtual version of the DOM is greatly simplified and very fast to work with. React then checks the virtual DOM against the real DOM in the browser and makes a list of updates to perform. Since DOM manipulation is a slow process, this ensures only elements genuinely changed are updated. There are many Virtual DOM based systems available in the JavaScript ecosystem, but **React** is by far the most commonly used.
+To build a minimal list of operations to be performed on the DOM, React needs to to compare what is currently in the DOM to what should be there. To support this, the ```render``` function does **not** output HTML or make changes to the DOM directly. Instead, it outputs a data structure known as a **Virtual DOM**. This virtual version of the DOM is greatly simplified and very fast to work with. React then checks the virtual DOM against the real DOM in the browser and makes a list of updates to perform. Since DOM manipulation is a slow process, this ensures only elements genuinely changed are updated. There are many Virtual DOM based systems available in the JavaScript ecosystem, but **React** is by far the most commonly used.
 
 ## Review
 
@@ -87,17 +87,17 @@ Solution: B. store
 
 ## Frameworks and Libraries
 
-You may have encountered the terms ```framework``` and ```library```. Both of these terms describe "code someone else wrote that is not part of your application". Generally speaking, a library is a collection of functionality meant to be integrated into your application. Each part of a library is relatively isolated and can be brought in piece-by-piece. Frameworks, on the other hand, work by having your application embedded inside them. In this way, frameworks dictate much, if not all, of how your application is structured. This has both benefits and drawbacks.
+You may have encountered the terms ```framework``` and ```library```. Both of these terms describe "code someone else wrote that is not part of your application". Generally speaking, a library is a collection of code functionality meant to be integrated into your application. Each part of a library is relatively isolated and can be brought in piece-by-piece. Frameworks, on the other hand, work by having your application embedded **inside** them. In this way, frameworks dictate much, if not all, of how your application is structured. This has both benefits and drawbacks.
 
 ### Benefits
 
-By dictating much of how your application will work, ```frameworks``` are great at taking shortcuts by providing simpler ways of adding difficult functionality to your projects. It also reduces the amount of work you need to get started on a project.
+By dictating much of how your application will work, ```frameworks``` are great at taking shortcuts by providing simpler ways of adding difficult functionality to your projects. It also reduces the amount of work you need to get started on a project. A framework "spins up" a fully dunctional starter code package, where you them make changes to create your desired application.
 
-```Libraries```, on the other hand, don't dictate how they are used. When working on a project, you choose how to bring them into your application and what parts you would like to use. As such, you must wire up all the necessary parts yourself, which often means getting started with a library is a bit slower.
+```Libraries```, on the other hand, don't dictate how they are used. When working on a project, you choose how to bring them into your application and what parts you would like to use. You must "wire together" all the necessary parts yourself, which often means getting started with a library is a bit slower.
 
 ### Drawbacks
 
-When using ```frameworks```, decisions are made up front that allow and define the shortcuts to be taken in a project. By doing this, it will restrict the choices you have within your project. Conventions are great until you want to break them, and in some frameworks, stepping outside the dictated path can be quite tricky.
+When using ```frameworks```, decisions are made up front which allow and define the shortcuts to be taken in a project. By doing this, it will restrict the choices you have within your project. Conventions are great until you want to break them, and in some frameworks, stepping outside the dictated path can be quite tricky.
 
 ```Libraries```, however, have very few built-in decisions, so you're at much greater liberty to use it just the way you want to. You can use a single function from a library or use all of what is provided. When using libraries, you also have the option to use multiple libraries together in ways the original authors had no intention of.
 
@@ -111,9 +111,11 @@ Think of a ```framework``` as a workout class. You use the equipment the instruc
 
 ## React Setup
 
-Now that you have a general idea of what React is and how it works, the next step is to install a starter project provided for you. You will be working in this project throughout the next several lessons, so it is important to not skip this page.
+We discussed what React is.The next step is to create a starter project. You will be working in this project throughout the next several lessons, so it is important to not skip this page.
 
-For this course, create a folder in your ```SoftwareDevelopment``` folder named ```FEFReact```. Please add all projects to this folder to help keep yourself organized. You will be creating projects to practice the code from the lesson and projects for your Hands-On solutions. As you move through this course, you will be asked to create projects with specific names, so please add these projects into the ```FEFReact``` folder. To create this folder, follow the steps below:
+For this course, create a folder in your ```SoftwareDevelopment``` folder named ```FEFReact```. Please add all projects to this folder to help keep yourself organized. You will be creating projects to practice the code from the lesson and projects for your Hands-On solutions. As you move through this course, you will be asked to create projects with specific names, so please add these projects into the ```FEFReact``` folder. 
+
+To create this folder, follow the steps below:
 
 1. Open up your command prompt/terminal.
 2. Run the following to navigate to your Desktop
@@ -141,21 +143,21 @@ directory in your terminal.
 
 	```cd FEFReact```
 
-Great! Now you have a folder to house all of the projects for this course. Remember to create projects when asked and make sure they live in this folder!
+Great! Now you have a folder where all of the projects for this course will live. Remember to create projects when asked and make sure they live in this folder!
 
 
 ## Project Setup
 
-We will now start getting familiar with probably the most important topic of this course, namely the React-library. Let's start off by making a simple React application as well as getting to know the core concepts of React.
+We will now start getting familiar with probably the most important topic of this course, namely the React-library. Let's start off by making a simple React starter application as well as getting to know the core concepts of React.
 
 The easiest way to get started by far is by using a tool called ```create-react-app```. It is possible (but not necessary) to install ```create-react-app``` on your machine if the ```npm``` tool that was installed along with Node has a version number of at least 5.3.
 
-Let's create an application called ```part1``` and navigate to its directory.
+Let's create an application called ```ReactL01``` and navigate to its directory.
 
 ```
 cd FEFReact
-npx create-react-app part1
-cd part1
+npx create-react-app ReactL01
+cd ReactL01
 ```
 To install the required Node Library;
 
@@ -165,7 +167,7 @@ This takes a while so be patient and wait until it finishes.
 
 **Caution!**
 
-If you are getting this error ```saveError ENOENT: no such file or directory, open '/Users/username/Desktop/React-Course/test/package.json```, that means you are not in the correct directory with a ```package.json file```. Please make sure you are in the correct directory.
+If you are getting this error ```saveError ENOENT: no such file or directory, open '/Users/username/Desktop/React-Course/test/package.json```, it means you are not in the correct directory with a ```package.json file```. Please make sure you are in the correct directory.
 
 Now let's run the application.
 
@@ -181,9 +183,11 @@ Your default browser should launch automatically. Open the browser console immed
 
 You can stop this process by pressing ```Control + C``` in the terminal, but for now, keep the server running.
 
-While working on this course, you will want to have the ```npm start``` process running, since it takes care of packaging up files needed to view the project in your browser. When you make a change in the project, you will see new text appear in the terminal and the browser window that was launched will reload automatically. This is a process called hot reloading and is very useful when developing as it lets you see your changes very quickly.
+While working on this course, you will want to have the ```npm start``` process running, since it takes care of packaging up files needed to view the project in your browser. When you make a change in the project, you will see new text appear in the terminal and the browser window you launched will reload automatically. This is a process called hot reloading and is very useful when developing as it lets you see your changes very quickly.
 
-The source code of the application resides in the ```src``` folder. Let's simplify the default code so the contents of the file ```index.js``` look like:
+### src
+
+The source code of the application resides in the ```src``` folder. Let's edit the default code already in the starter application so the contents of the file ```index.js``` now look like:
 
 ```
 import React from 'react'
@@ -194,7 +198,7 @@ import App from './App'
 ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ```
 
-and file ```App.js``` looks like this;
+and edit the file ```App.js``` to like this;
 
 ```const App = () => (
   <div>
@@ -205,9 +209,9 @@ and file ```App.js``` looks like this;
 export default App
 ```
 
-Delete the following files as we don't need them just yet. 
+Delete the following default files as we don't need them just yet. 
 
--  ```App.css```, 
+- ```App.css```, 
 - ```App.test.js```, 
 - ```index.css```, 
 - ```logo.svg```, 
@@ -235,12 +239,12 @@ You may need to do the same for your other projects if the error pops up.
 #### Component
 
 
-The file ```App.js``` now defines a React component with the name ```App```. The command on the final line of file ```index.js```
+The file ```App.js``` now defines a React component with the name ```App```. The code now on the final line of file ```index.js```
 
 ```
 ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ```
-renders its contents into the ```div```-element, defined in the file ```public/index.html```, having the ```id``` value ```'root'```.
+renders its contents into the ```div``` element, defined in the file ```public/index.html```, having the ```id``` value ```'root'```.
 
 By default, the file ```public/index.html``` doesn't contain any HTML markup visible in the browser. You can try adding some HTML to the file. However, when using React, all content that needs to be rendered is usually defined as React **components**.
 
@@ -249,14 +253,14 @@ Let's take a closer look at the code defining the **component**:
 ```
 const App = () => (
   <div>
-    <p>Hello world</p>
+    <p>Hello software development world!</p>
   </div>
 )
 ```
 
-As you probably guessed, the component will be rendered as a ```div```-tag, which wraps a ```p```-tag containing the text ```Hello world```.
+As you probably guessed, the component will be rendered as a ```div``` tag, which wraps around a ```p``` tag containing the text ```Hello software development world!```.
 
-Technically the component is defined as a JavaScript function. The following is a function (which does not receive any parameters):
+Technically the component is defined as a JavaScript **function**. The following is a ```function``` (which does not receive any ```parameters```):
 
 ```
 () => (
@@ -270,15 +274,15 @@ The function is then assigned to a constant variable ```App```:
 
 ```const App = ...```
 
-There are a few ways to define functions in JavaScript. Here we will use arrow functions, which are described in a newer version of JavaScript known as ECMAScript 6, also called ES6.
+There are a few ways to define functions in JavaScript. Here we will use arrow functions,```=>```, which are described in a newer version of JavaScript known as ECMAScript 6, also called ES6.
 
-Because the function consists of only a single expression we have used a shorthand, which represents this piece of code:
+Because the function consists of only a single expression we have used a code shorthand, which represents this piece of code:
 
 ```
 const App = () => {
   return (
     <div>
-      <p>Hello world</p>
+      <p>Hello software development world!</p>
     </div>
   )
 }
@@ -286,14 +290,16 @@ const App = () => {
 
 In other words, the function returns the value of the expression.
 
-The function defining the component may contain any kind of JavaScript code. Modify your component to be as follows and observe what happens in the console:
+The function defining the component may contain any kind of JavaScript code. 
+
+Now modify your component to be as follows and observe what happens in the console:
 
 ```
 const App = () => {
-  console.log('Hello from component')
+  console.log('Hello from your component')
   return (
     <div>
-      <p>Hello world</p>
+      <p>Hello software development world!</p>
     </div>
   )
 }
@@ -301,7 +307,7 @@ const App = () => {
 
 It is also possible to render dynamic content inside of a component.
 
-Modify the component as follows:
+Now modify your component as follows:
 
 ```
 const App = () => {
@@ -311,7 +317,7 @@ const App = () => {
 
   return (
     <div>
-      <p>Hello world, it is {now.toString()}</p>
+      <p>Hello software development world, it is {now.toString()}</p>
       <p>
         {a} plus {b} is {a + b}
       </p>
@@ -320,11 +326,16 @@ const App = () => {
 }
 ```
 
-Any JavaScript code within the curly braces is evaluated and the result of this evaluation is embedded into the defined place in the HTML produced by the component.
+Any JavaScript code within the curly braces ```{}``` is evaluated and the result of this evaluation is embedded into the defined place in the HTML produced by the component.
 
 ## Rendering with React
 
-A React Element is the smallest building block in React. The virtual DOM is a tree structure comprised of a ```root``` element that contains other elements. This tree of virtual DOM elements is immutable, meaning it can't be changed after creation. This allows React to keep previous versions of the virtual DOM to compare against when updates are made to help ensure only the minimal amount of work is performed.
+A React Element is the smallest building block in React. The virtual DOM is a tree structure comprised of a ```root``` element that contains other elements.
+
+![](assets/virtyal-dom.png)
+
+
+ This tree of virtual DOM elements is immutable, meaning it can't be changed after creation. This allows React to keep previous versions of the virtual DOM to compare against when updates are made to help ensure only the minimal amount of work is performed.
 
 ### Project Structure
 
@@ -375,12 +386,12 @@ The compilation is handled by Babel. Projects created with ```create-react-app``
 
 It is also possible to write React as "pure JavaScript" without using JSX. Although, nobody with a sound mind would actually do so.
 
-In practice, JSX is much like HTML with the distinction that with JSX you can easily embed dynamic content by writing appropriate JavaScript within curly braces. The idea of JSX is quite similar to many templating languages, such as Thymeleaf used along with Java Spring, which are used on servers.
+In practice, **JSX** is much like HTML with the distinction that with **JSX** you can easily embed dynamic content by writing appropriate JavaScript within curly braces ```{}```. The idea of **JSX** is quite similar to many templating languages, such as Thymeleaf used along with Java Spring, which are used on servers.
 
-JSX is "XML-like", which means that every tag needs to be closed. For example, a newline is an empty element, which in HTML can be written as follows:
+**JSX** is "XML-like", which means every tag needs to be closed. For example, a ```newline``` is an empty element, which in HTML can be written as follows:
 
 ```<br>```
 
-but when writing JSX, the tag needs to be closed:
+but when writing **JSX**, the tag needs to be closed:
 
 ```<br />```
