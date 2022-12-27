@@ -240,6 +240,8 @@ You may need to do the same for your other projects if the error pops up.
 
 #### Component
 
+![](assets/part2-state-changes-example.png)
+
 
 The file ```App.js``` now defines a React component with the name ```App```. The code now on the final line of file ```index.js```
 
@@ -401,3 +403,363 @@ In practice, **JSX** is much like HTML with the distinction that with **JSX** yo
 but when writing **JSX**, the tag needs to be closed:
 
 ```<br />```
+
+
+## ReactDOM & First React Element
+
+### Create Element
+
+The ```React.createElement()``` method is very useful because it creates new elements for you on the page rather than having to add the elements into your ```index.html``` file.
+
+Below, the ```React.createElement()``` method takes in three parameters: ```type```, ```props```, and ```children```.
+
+```
+import React from 'react';
+
+React.createElement('h1', {}, 'Hello Software Development World!');
+```
+
+
+In the above ```createElement()``` method, the type is the ```HTML``` tag you want to create, in this case, an ``h1`` tag. `Props` (stands for properties) are objects that get added to the element. They can be used to add `class` and `id` names or other attributes to the element created. Later on in this lesson, `props` will serve a larger purpose. For the current example, this object is empty to visualize creating a basic element. Later on, you will see it being used. **Children** are zero or more elements nested inside the element. In this case, you are providing some plain text as a child of the `h1` tag.
+
+Great! If you add the new `createElement()` method to your code, nothing will happen. That is because you are missing a piece to make this code work.
+
+### ReactDOM
+
+`createElement` builds a virtual DOM element, but to get React to update the page based on it, you must use the `render` function from the `react-dom/client` package. To start, you need to import the ReactDOM package as you did with React itself. Add the import statement so your code now looks like below:
+
+**src/index.js file**:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+import App from './App';
+
+React.createElement('h1', {}, 'Hello Software Development World!');
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+
+Next, you need to add the `render()` function  included in the `ReactDOM` package. `render(`) has two parameters. The first parameter is what you would like to render on the page. In this case, you want to render the `React.createElement('h1', {}, 'Hello Software Development World!')`; method you already have in your code. The second parameter is where you would want to render the `createElement()` method. If you remember, there is a `<div>` in the HTML file with an `id` of `root`. This is where you are going to render your newly created `h1` element by using `document.getElementById('root')`.
+
+Create the `ReactDOM.render()` method and move the `React.createElement('h1', {}, 'Hello Software Development World!')`; inside it along with the `document.getElementById('root')`. Your `index.js` should now look like below:
+
+**src/index.js file**:
+
+```
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+#### Caution!
+
+Be careful to notice there is comma after the `createElement()` method instead of a semicolon. If you forget to change this, you will get an error.
+
+The above code tells React to find an element on the page with an `id` of `root` and replace its contents with your newly created element.
+
+#### Try It!
+
+Add the above code to your `index.js` file and navigate to `localhost:8080`. The page will automatically update and you should now see "Hello Software Development World!".
+
+#### Review
+
+(Use current review)
+
+### Props and Children
+
+Time to dive a little bit deeper in how you can use `props` and `children` in the `React.createElement()` method.
+
+First, you will begin with **Children**. You will be continuing with the code you have previously written in this lesson.
+
+### Children
+
+Now you want to render the created `<h1>` element inside of a new element. First, you need to create the new element (`<div>` in this case) in a new `React.createElement()` method. Again, you will be using an empty object as `props`. You then set the `<h1>` element you created earlier as a child (the third parameter) of the new `<div>` element.
+
+#### Try It!
+
+Try creating this new element within the `ReactDOM.render()` method. See what how close you can get and if you get stuck, the code is located below.
+
+**src/index.js file**:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+ReactDOM.render(
+  React.createElement('div', {}, React.createElement('h1', {}, 'Hello Software Development World!')),
+  document.getElementById('root')
+);
+```
+
+### Props
+
+Now, you will look at an example of adding a class name to the `<h1>` element you created. The syntax for this is shown below:
+
+**src/index.js file**:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+ReactDOM.render(
+  React.createElement(
+    'div',
+    {},
+    React.createElement('h1', { className: 'flowers' }, 'Hello World!')
+  ),
+  document.getElementById('root')
+);
+```
+
+As you can see above, you added a class name of `flowers` to the `<h1>` tag that lives within a `<div>`. It is fairly simple; you just need to know the attribute name within React. If you used the word `class` instead of `className`, you would get an error. That is because the `class` keyword is tied directly to JavaScript and will not work in React.
+
+Another example would be to use the `a` (anchor) element which requires using the `href` attribute. The below code creates an a element which then redirects the user to `www.google.com`.
+
+**src/index.js file**:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+ReactDOM.render(
+  React.createElement(
+    'a',
+    { href: 'https://www.google.com' },
+    'Take me to Google.com!'
+  ),
+  document.getElementById('root')
+);
+```
+
+#### Caution!
+
+Notice how the `href` to `www.google.com` is written as "https://www.google.com". `The https://` will ensure the user is taken to that specific website. If it was written like "www.google.com", React would try and point you to that path within the project rather then on the web.
+
+#### Additional Info!
+
+If you would like to read more about the attribute names used in `React.createElement`, please visit: [ReactJS](https://reactjs.org/docs/dom-elements.html).
+
+#### Review
+
+(Use current review)
+
+### More Advanced Rendering
+
+Let's look at creating some React elements based on slightly more complex elements.
+
+### Render Multiple Child Elements
+
+If you wanted to render an unordered list of different types of fruit, you would do so in HTML like below:
+
+**index.html file**:
+
+```
+<ul>
+  <li>Apples</li>
+  <li>Oranges</li>
+  <li>Mangos</li>
+</ul>
+```
+How would you do that using `React.createElement()`? First, you would need to note what element you are creating, in this case, a `<ul>` element. Next, you would add any properties. For this example, continue using an empty object. Then, you would need three more `React.createElement()` methods to create the elements of each of the `<li>` elements along with the empty object and the name of each of the fruits.
+
+#### 
+Try It!
+Try creating these new elements within the `ReactDOM.render()` method. See how close you can get and if you get stuck, the code is located below.
+
+**src/index.js file**:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+  React.createElement(
+    'ul',
+    {},
+    React.createElement('li', {}, 'Apples'),
+    React.createElement('li', {}, 'Oranges'),
+    React.createElement('li', {}, 'Mangos')
+  ),
+  document.getElementById('root')
+);
+```
+
+After adding the above code to your `index.js` file, navigate back to `localhost:8080`. You should now see an unordered list of three fruits as shown below:
+
+- Apples
+- Oranges
+- Mangos
+
+**Tip!**
+
+Notice how the `ul` element has three `createElements` within. You can create many child elements within an element, like you did above.
+
+### Complex Element Nesting
+
+Now, what if you wanted to add nested lists to show the price of each of the fruits? In HTML, you would do it like below:
+
+**index.html file**:
+
+```
+<ul>
+  <li>Apples</li>
+    <ul>
+      <li>$1.00 per lb</li>
+    </ul>
+  <li>Oranges</li>
+    <ul>
+      <li>$.70 per lb</li>
+    </ul>
+  <li>Mangos</li>
+    <ul>
+      <li>$2.00 per lb</li>
+    </ul>
+</ul>
+```
+
+If you want to do this in React, you have to create elements within each of the `<li>` elements within the `<ul>` element. This will create nesting within the list. The code is shown below:
+
+**src/index.js file**:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+  React.createElement(
+    'ul',
+    {},
+    React.createElement(
+      'li',
+      {},
+      'Apples',
+      React.createElement(
+        'ul',
+        {},
+        React.createElement('li', {}, '$1.00 per lb')
+      )
+    ),
+    React.createElement(
+      'li',
+      {},
+      'Oranges',
+      React.createElement(
+        'ul',
+        {},
+        React.createElement('li', {}, '$.70 per lb')
+      )
+    ),
+    React.createElement(
+      'li',
+      {},
+      'Mangos',
+      React.createElement('ul', {}, React.createElement('li', {}, '$2.00 per lb'))
+    )
+  ),
+  document.getElementById('root')
+);
+```
+
+Add the above code into your `index.js` file. You should now see the below:
+
+- Apples
+	- $1.00 per lb
+- Oranges
+	- $.70 per lb
+- Mangos
+	- $2.00 per lb
+
+### Using Variables
+
+As with many programming tasks, you can make the problem easier to tackle by breaking it down a bit. In this case, you can break out some of the parts you are rendering into `variables`.
+
+Now, consider how your code would look if you set each of the fruit `React.createElement()` methods to a `variable`.
+
+**src/index.js file**:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const apples = React.createElement(
+  'ul',
+  {},
+  React.createElement('li', {}, '$1.00 per lb')
+);
+const oranges = React.createElement(
+  'ul',
+  {},
+  React.createElement('li', {}, '$.70 per lb')
+);
+const mangos = React.createElement(
+  'ul',
+  {},
+  React.createElement('li', {}, '$2.00 per lb')
+);
+
+ReactDOM.render(
+  React.createElement(
+    'ul',
+    {},
+    React.createElement('li', {}, 'Apples', apples),
+    React.createElement('li', {}, 'Oranges', oranges),
+    React.createElement('li', {}, 'Mangos', mangos)
+  ),
+  document.getElementById('root')
+);
+```
+
+That certainly cleans up your code! If you navigate to `localhost:8080`, it will update the page but it will look exactly the same. How about you take it a step further. Now, you want to create variables for each of the prices to then use in each of the fruit variables. Consider below:
+
+**src/index.js file**:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const applesPrice = React.createElement('li', {}, '$1.00 per lb');
+const apples = React.createElement('ul', {}, applesPrice);
+
+const orangesPrice = React.createElement('li', {}, '$.70 per lb');
+const oranges = React.createElement('ul', {}, orangesPrice);
+
+const mangosPrice = React.createElement('li', {}, '$2.00 per lb');
+const mangos = React.createElement('ul', {}, mangosPrice);
+
+ReactDOM.render(
+  React.createElement(
+    'ul',
+    {},
+    React.createElement('li', {}, 'Apples', apples),
+    React.createElement('li', {}, 'Oranges', oranges),
+    React.createElement('li', {}, 'Mangos', mangos)
+  ),
+  document.getElementById('root')
+);
+```
+
+#### Caution!
+
+Notice how the variables for the fruit's pricing are located above each of the fruit variables. This is because code is read **from top to bottom**. So, if the pricing variables were located under the fruit variables, they would not be read in time to render within the fruit variables.
+
+Using variables this way can help reduce the amount of nesting needed, but it is not the most ideal way to handle this. During the next lesson, you will look further at the templating system named JSX we briefly mentioned earlier, designed to make this process more natural to work with.
+
+
+#### Additional Info!
+
+If you would like to read more about this subject, please visit [Facebook's React documentation on displaying elements](https://reactjs.org/docs/rendering-elements.html).
+
+
+#### Review
+
+(Use current review)
+
+## Key Terms
+
+Below is a list and short description of the important keywords you have learned in this lesson. Please read through and go back and review any concepts you don't understand fully. Great Work!
+
+| Keyword   |  Description  |
+| -------     --------------
+| React     |  A library for performing efficient updates to a web page.  |
+| React.createElement()  |  A React method that creates new elements on the page rather than having to add the elements into the index.html file.  |
+|  ReactDOM/client  |  A package needed to render the React.createElement() correctly.  |
+| render()  |  A method included in the ReactDOM/client package that allows to render elements onto the webpage.  |
