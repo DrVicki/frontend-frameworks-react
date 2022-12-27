@@ -757,14 +757,11 @@ If you would like to read more about this subject, please visit [Facebook's Reac
 
 Below is a list and short description of the important keywords you have learned in this lesson. Please read through and go back and review any concepts you don't understand fully. Great Work!
 
-| Keyword   |  Description  |
+|      **Keyword**      |                                                    **Description**                                                    |
+|:---------------------:|:---------------------------------------------------------------------------------------------------------------------:|
+| React                 | A library for performing efficient updates to a web page.                                                             |
+| React.createElement() | A React method that creates new elements on the page rather than having to add the elements into the index.html file. |
+| ReactDOM/client       | A package needed to render the React.createElement() correctly.                                                       |
+| render()              | A method included in the ReactDOM/client package that allows to render elements onto the webpage.                     |
 
-| -------     --------------
 
-| React     |  A library for performing efficient updates to a web page.  |
-
-| React.createElement()  |  A React method that creates new elements on the page rather than having to add the elements into the index.html file.  |
-
-|  ReactDOM/client  |  A package needed to render the React.createElement() correctly.  |
-
-| render()  |  A method included in the ReactDOM/client package that allows to render elements onto the webpage.  |
