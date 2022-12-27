@@ -15,6 +15,7 @@ React does not have an opinion on what dispatcher and store you should use, it o
 
 ## Virtual DOM
 
+![](assets/virtyal-dom.png)
 
 React is designed to use the ```render``` function to output content the page actually contains. This may involve adding elements, removing elements, or updating elements in-place. These are the kind of operations traditionally jQuery is used for. Unfortunately, making updates to the DOM can be slow, and multiple unnecessary updates can severely impact the responsiveness of a site, especially as the number of updates grows. This was one of the driving factors for motivating Facebook to develop **React**. With React they were able to minimize the amount of updates being performed and bring the performance of the page back to a reasonable point.
 
