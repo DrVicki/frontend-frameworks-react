@@ -359,6 +359,8 @@ Open up the ```ReactL01``` project you previously created. You will be following
 
 #### JSX
 
+![](https://github.com/DrVicki/frontend-frameworks-react/blob/main/week-1/lesson-1/assets/jsx-js.png)
+
 
 It seems like React components are returning HTML markup. However, this is not the case. The layout of React components is mostly written using ```JSX```. Although ```JSX``` looks like HTML, we are actually dealing with a way to write JavaScript. Under the hood, ```JSX``` returned by React components is compiled into JavaScript.
 
