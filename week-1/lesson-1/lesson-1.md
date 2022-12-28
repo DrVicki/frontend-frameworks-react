@@ -764,4 +764,47 @@ Below is a list and short description of the important keywords you have learned
 | ReactDOM/client       | A package needed to render the React.createElement() correctly.                                                       |
 | render()              | A method included in the ReactDOM/client package that allows to render elements onto the webpage.                     |
 
+## Lesson 1 Practice Hands-On
 
+**Directions**
+
+For your Lesson 1 Practice Hands-On, you will be working on a new project as detailed below. This Hands-On will not be graded, but we strongly encourage you to complete it. The best way to become a great programmer is to practice! Once you have submitted your project, you will be able to access the solution on the next page.
+
+
+### Setup
+
+1. Start by creating and navigating to your starter React Project.
+
+`cd SoftwareDevelopment`
+
+`cd FEFReact`
+
+`npx create-react-app L01HandsOn`
+
+`cd L01HandsOn`
+
+2. When you are in the `L01HandsOn` directory, run the following command.
+
+`npm install`
+
+3. After npm has completed the installations, test the server is working with the following command.
+
+`npm start`
+
+You should now see your browser open, and the React Application Template visible on the page.
+
+4. Open project folder from desktop into VS Code.
+
+- Click on "Open Folder"
+
+  ![](assets/open-folder.png)
+
+- Desktop > FEFReact > Double-Click "Open"
+
+  ![](assets/click-folder.png)
+
+5.  Delete files not necessary for this project.
+
+![](assets/delete.png)
+
+6. Also dete the `reportWebVitals.js `file.
