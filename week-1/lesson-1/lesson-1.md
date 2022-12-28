@@ -829,8 +829,51 @@ Before proceeding further, save your work, and make certain the file is opening 
 Write the React code needed to render the equivalent of the below `HTML` favorite things list. Add the code for the following requirements within the `src/index.js` file:
 
 1. Based on the below list, keep the sections the same (i.e., Favorite Colors, Favorite Websites, etc.), but feel free to fill it in with your personal favorite things.
-The list of your Favorite Websites should navigate the user to those specific websites, as you can below.
-You should have three different websites listed under "Favorite Websites".
-Add a class name to each of the subtopics (i.e., Favorite Colors, Favorite Websites, etc.). The class names should relate to their respective favorite thing topic.
-For example, the Favorite Colors section should have a class name of something similar to "favoriteColors".
-Use Variables in some way
+
+2. The list of your Favorite Websites should navigate the user to those specific websites, as you can below.
+
+3. You should have three different websites listed under "Favorite Websites".
+
+4. Add a class name to each of the subtopics (i.e., Favorite Colors, Favorite Websites, etc.). The class names should relate to their respective favorite thing topic.
+
+- For example, the Favorite Colors section should have a class name of something similar to "`favoriteColors`".
+
+5. Use Variables in some way
+
+### Example
+
+When you are done, it should look similar, but not exactly the same as the example below. Notice the use of `unordered` and `ordered` lists:
+
+## My Favorite Things
+
+- Favorite Colors
+  1. Green
+  2. Blue
+  3. Red
+- Favorite Music
+  1. Regina Spektor
+  2. Antonín Dvořák
+  3. Radiohead
+- Favorite Food
+  1. Pizza
+  2. Ceasar Salad
+  3. Gnocchi
+- Favorite Websites
+  1. [www.google.com](https://www.google.com/)
+  2. [www.facebook.com](https://www.facebook.com/)
+  3. [www.instagram.com](https://www.instagram.com/)
+
+#### Tip!
+
+Remember; you can only have one parent element!
+
+#### Caution!
+
+Be sure to zip and submit your entire `L01HandsOn` directory when finished!
+
+
+## Add
+
+"Drop files to upload, or click to browse"
+
+"Submit Project" Button
