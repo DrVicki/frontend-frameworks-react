@@ -189,6 +189,8 @@ While working on this course, you will want to have the ```npm start``` process 
 
 ### src
 
+![](assets/src.png)
+
 The source code of the application resides in the ```src``` folder. Let's edit the default code already in the starter application so the contents of the file ```index.js``` now look like:
 
 ```
@@ -361,12 +363,7 @@ Open up the ```ReactL01``` project you previously created. You will be following
 
 #### JSX
 
-<<<<<<< HEAD
 ![](assets/jsx-js.png)
-=======
-![](https://github.com/DrVicki/frontend-frameworks-react/blob/main/week-1/lesson-1/assets/jsx-js.png)
-
->>>>>>> 082830045b524543beea57d8c3c3a8186845dcd6
 
 It seems like React components are returning HTML markup. However, this is not the case. The layout of React components is mostly written using ```JSX```. Although ```JSX``` looks like HTML, we are actually dealing with a way to write JavaScript. Under the hood, ```JSX``` returned by React components is compiled into JavaScript.
 
