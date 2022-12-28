@@ -804,4 +804,32 @@ You should now see your browser open, and the React Application Template visible
 
 ![](assets/delete.png)
 
-6. Also dete the `reportWebVitals.js `file.
+6. Also delete the `reportWebVitals.js `file.
+
+7. Open the `app.js` file.
+
+  - delete the 2 import statements at the top
+
+  - delete "`logo`" found near line 8.
+
+8. Add the necessary import statements at the top of the index.js file, and remove the "`alert`" currently living in the file.
+
+```
+import React from 'react';
+
+import ReactDOM from 'react-dom/client';
+
+STOP!
+
+Before proceeding further, save your work, and make certain the file is opening in your browser, by refreshing browser page, or `npm start`.
+
+### Requirements
+
+Write the React code needed to render the equivalent of the below `HTML` favorite things list. Add the code for the following requirements within the `src/index.js` file:
+
+1. Based on the below list, keep the sections the same (i.e., Favorite Colors, Favorite Websites, etc.), but feel free to fill it in with your personal favorite things.
+The list of your Favorite Websites should navigate the user to those specific websites, as you can below.
+You should have three different websites listed under "Favorite Websites".
+Add a class name to each of the subtopics (i.e., Favorite Colors, Favorite Websites, etc.). The class names should relate to their respective favorite thing topic.
+For example, the Favorite Colors section should have a class name of something similar to "favoriteColors".
+Use Variables in some way
