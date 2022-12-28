@@ -818,6 +818,7 @@ You should now see your browser open, and the React Application Template visible
 import React from 'react';
 
 import ReactDOM from 'react-dom/client';
+```
 
 STOP!
 
