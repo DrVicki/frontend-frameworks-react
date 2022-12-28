@@ -408,6 +408,9 @@ referencing the React variable. `index.html` loads the React library for so we�
 
 Your `ProductList` class has a single method, `render()`. `render()` is the only required method for a React component. React uses the return value from this method to determine what to render to the page.
 
+| There are two ways to declare React components:  (1) As ES6 classes (as above)  (2) Function components  An example of using an ES6 class:  class HelloWorld extends React.Component {       render() { return <p>Hello, world!</p>; } }  The same component written in a “functional component” style:  function HelloWorld() {      return <p>Hello, world!</p>; }  At the time of writing, both types of declarations are in widespread use. While they  both do essentially the same thing, there are some important differences we’ll  get to later in the course. |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
 ## Key Terms
 
 Below is a list and short description of the important keywords you have learned in this lesson. Please read through and go back and review any concepts you don't understand fully. Great Work!
