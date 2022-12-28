@@ -1,5 +1,14 @@
 # Setup and Rendering with React
 
+### Let's Get Excited!
+
+Writing web applications with React is fun. You’re going to learn
+
+If you’ve written client-side JavaScript before, you’ll find React refreshingly intuitive.
+If this is your first serious dive into the `front-end`, you’ll be blown away at how quickly you can create something to get excited about.
+
+So strap in! You’re beginning the journey to become a React programmer and have a lot of fun along the way. Let’s go!
+
 ## Overview
 
 React is a library for performing efficient updates to a web page; a process referred to as ```rendering```. To use React, the author describes how a given application state should be displayed and React takes care of manipulating the browser's ```DOM``` to match that state. This removes the error-prone process of manually updating parts of the DOM when your application state changes. With React, you merely render **everything** again, and React makes sure only to make the minimal changes necessary.
@@ -111,9 +120,63 @@ Think of a ```framework``` as a workout class. You use the equipment the instruc
 
 (Same as in original course)
 
+## Your first React Web Application: Building Product Hunt
+
+In this lesson, you’re going to get a speed-dating introduction on React by building a simple
+voting application inspired by [Product Hunt](http://producthunt.com). You will become familiar with how React approaches `front-end` development and the fundamentals required to build an interactive React `app` from start to finish. Thanks to React’s core simplicity, by the end of the lesson you will be well on your way to writing a variety of fast, dynamic user interfaces.
+
+![](../lesson-2/assets/productHunt.png)
+
+We will focus on getting our React application up and running fast. We take a deeper look at concepts covered in this lesson throughout the course.
+
 ## React Setup
 
-We discussed what React is.The next step is to create a starter project. You will be working in this project throughout the next several lessons, so it is important to not skip this page.
+### Code Editor
+
+As you’ll be writing code throughout this course, you need to have a code editor you’re comfortable working with. If you don’t already have a preferred editor, we recommend installing V[S Code](https://code.visualstudio.com/).
+
+### Node.js and npm
+
+For all the projects in this course, make sure you have a working `Node.js` development environment along with `npm`.
+
+Please refer to the [Node.js](For all the projects in this book, we’ll need to make sure we have a working Node.js¹⁵
+development environment along with npm.
+
+Refer to the [Node.js
+website](https://nodejs.org/download/) for detailed  information.
+
+#### Caution!
+
+If you’re working on a Mac, your best bet is to install `Node.js` directly from
+the Node.js website instead of through another package manager (like
+Homebrew). Installing `Node.js` via Homebrew is known to cause some issues.
+
+The **Node Package Manager** (`npm` for short) is installed as part of `Node.js`. 
+
+To check if `npm` is available as part of your development environment, open a terminal window and type:
+
+`npm -v`
+
+If a version number is not printed out and you receive an error, download a `Node.js` installer that includes `npm`.
+
+### Install Git
+
+The application in this lesson requires `Git` to install required third-party libraries. If you don’t have `Git` installed, see [these instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for installing Git on your specific operating system. After installing `Git, restart your computer.
+
+### Browser
+
+We highly recommend using the [Google Chrome Web Browser](https://www.google.com/chrome/) to develop
+React applications. We’ll use the Chrome developer toolkit throughout this course. To code along with our development and debugging we recommend downloading it now.
+
+### Special instruction for Windows users
+
+All the code in this course has been tested on Windows 10 with **PowerShell**. 
+
+#### Ensure **IIS** is installed.
+
+If you are using a Windows machine and have yet to do any web development on it, you may need to install **IIS** (Internet Information Services) to run web servers locally.
+See [this tutorial](http://www.howtogeek.com/112455/how-to-install-iis-8-on-windows-8/) for installing IIS.
+
 
 For this course, create a folder in your ```SoftwareDevelopment``` folder named ```FEFReact```. Please add all projects to this folder to help keep yourself organized. You will be creating projects to practice the code from the lesson and projects for your Hands-On solutions. As you move through this course, you will be asked to create projects with specific names, so please add these projects into the ```FEFReact``` folder. 
 

@@ -419,6 +419,10 @@ Keep in mind you will be using **ES6** from now on! ES5 is still valid, but ES6 
 
 (Use existing review)
 
+### Key Terms
+
+Below is a list and short description of the important keywords you learned in this lesson. Please read through and go back and review any concepts you don't understand fully. Great Work!
+
 
 
 
