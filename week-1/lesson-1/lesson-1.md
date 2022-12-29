@@ -183,6 +183,8 @@ significant update. It contains a wide variety of new features for JavaScript. J
 We want to write our code in ES6/ES7 today. But we also want our JavaScript to run on older browsers until they fade out of widespread use. We see later how we can enjoy the benefits of ES6/ES7 today while
 still supporting the vast majority of the world’s browsers.
 
+### Create Folder for course
+
 For this course, create a folder in your `SoftwareDevelopment` folder named `FEFReact`. Please add all projects to this folder to keep yourself organized. You will be creating projects to practice the code from the lesson and projects for your Hands-On solutions. As you move through this course, you will be asked to create projects with specific names, so please add these projects into the `FEFReact` folder.
 
 To create this folder, follow the steps below:
@@ -355,28 +357,58 @@ Open up `public/index.html` in your text editor. It should look like this:
   </body>
 </html>
 ```
+We’ll go over all the dependencies being loaded under the `<head>` tag later. The heart
+of the `HTML` document is these few lines here:
+
+**voting_app/public/index.html**
+
+```
+<div class="main ui text container">
+  <h1 class="ui dividing centered header">Popular Products</h1>
+  <div id="content"></div>
+</div>
+```
+#### Note!
+
+For this project, we’re using [Semantic UI](https://semantic-ui.com/) for styling.
+
+**Semantic UI** is a CSS framework, similar to Twitter’s [Bootstrap](https://getbootstrap.com/). It provides a grid system and some simple styling. You don’t need to know Semantic UI in this course. You will be provided all the styling code you need. At some point, you might want to check out the docs [Semantic UI docs](https://semantic-ui.com/introduction/getting-started.html) to get familiar with the framework and explore how you can use it in your own projects.
+
+
+The `class` attributes here are just concerned with `style` and are safe to ignore.
+Stripping those away, our core markup is more succinct:
+
+```
+<div>
+  <h1>Popular Products</h1>
+  <div id="content"></div>
+</div>
+```
+
+You now have a title for the page `(h1)` and a `div` with an `id` of `content`. This `div` is where
+you will ultimately connect your React application. You will see see soon what that means.
+
+The next few lines of code tell the browser what JavaScript to load. To start building your own
+application, remove the `./app-complete.js` script tag and content completely.
+
 After you save your updated `index.html` and reload the web browser, you’ll see your application has disappeared.
 
 ## What’s a component?
 
-Building a React application is all about `component`s. An individual React `component` can
-be thought of as a User Interface `component` in an application. You can break apart the interface of your
+Building a React application is all about `component`s. An individual React `component` can be thought of as a User Interface `component` in an application. You can break apart the interface of your
 application into two classes of components:
 
 ![](assets/app-components.png)
-
 **The app’s components**
 
-We have a hierarchy of one parent component and many child components. You’ll
-call these `ProductList` `and Product`, respectively:
+We have a hierarchy of one parent component and many child components. You’ll call these `ProductList` `and Product`, respectively:
 
 1. `ProductList`: Contains a list of product components
 2. `Product`: Displays a given product
 
 Not only do React components map cleanly to User Interface components, they are self-contained. The markup, view logic, and often component-specific style are all housed in one place. This feature makes React components **reusable**.
 
-React’s paradigm for component data flow and interactivity is rigidly defined. In React, when the
-inputs for a component change, the framework simply re-renders that component. This provides a robust User Interface consistency guarantee:
+React’s paradigm for component data flow and interactivity is rigidly defined. In React, when the inputs for a component change, the framework simply re-renders that component. This provides a robust User Interface consistency guarantee:
 
 **With a given set of inputs, the output (how the component looks on the page)
 will always be the same.**
@@ -399,23 +431,44 @@ Hello, friend! I am a basic React component.
 }
 ```
 
-React components are **ES6** classes that extend the class `React.Component`. Here we are
-referencing the React variable. `index.html` loads the React library for so we’re able to reference it here:
+React components are **ES6** classes that extend the class `React.Component`. Here we are referencing the React variable. `index.html` loads the React library for so we’re able to reference it here:
 
 **voting_app/public/index.html**
 
 `<script src="vendor/react.js"></script>`
 
-Your `ProductList` class has a single method, `render()`. `render()` is the only required method for a React component. React uses the return value from this method to determine what to render to the page.
-
-| There are two ways to declare React components:  (1) As ES6 classes (as above)  (2) Function components  An example of using an ES6 class:  class HelloWorld extends React.Component {       render() { return <p>Hello, world!</p>; } }  The same component written in a “functional component” style:  function HelloWorld() {      return <p>Hello, world!</p>; }  At the time of writing, both types of declarations are in widespread use. While they  both do essentially the same thing, there are some important differences we’ll  get to later in the course. |
-
-
-| There are two ways to declare React components:  (1) As ES6 classes (as above)  (2) Function components  An example of using an ES6 class:  class HelloWorld extends React.Component {       render() { return <p>Hello, world!</p>; } }  The same component written in a “functional component” style:  function HelloWorld() {      return <p>Hello, world!</p>; }  At the time of writing, both types of declarations are in widespread use. While they  both do essentially the same thing, there are some important differences we’ll  get to later in the course. |
+Your `ProductList` class has a single method, `render()`. `render()` is the only required method for a React component. React uses the `return` value from this method to determine what to render to the page.
 
 | There are two ways to declare React components: <br><br><br>(1) As ES6 classes (as above)<br><br><br>(2) Function components<br><br><br>An example of using an ES6 class:<br><br><br>class HelloWorld extends React.Component {<br>      render() { return <p>Hello, world!</p>; }<br>}<br><br><br>The same component written in a “functional component” style:<br><br><br>function HelloWorld() {<br>     return <p>Hello, world!</p>;<br>}<br><br><br>At the time of writing, both types of declarations are in widespread use. While they<br><br>both do essentially the same thing, there are some important differences we’ll<br><br>get to later in the course. |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
+#### Note!
+
+You will be using **ES6** class components through much of this corse, but you’ll be using function components from time-to-time as well. While it might seem simpler to just pick one, you’ll encounter (and use) both in your real-world work. So we’ll cover both.
+
+#### Try it!
+
+The return value may be surprising:
+
+**voting_app/public/js/app-1.js**
+
+```
+return (
+<div className='ui unstackable items'>
+  Hello, friend! I am a basic React component.
+</div>
+);
+```
+
+[Try it on CodePen](https://codepen.io/drbealman/pen/qBybzvY)
+
+The syntax of the `return` value doesn’t look like traditional JavaScript. We’re using **JSX** (JavaScript eXtension syntax), a syntax extension for JavaScript written by Facebook. Using **JSX** allows you to write the markup for your component views in a
+familiar, `HTML`-like syntax. In the end, this **JSX** code compiles to vanilla JavaScript.
+Although using **JSX** is not a necessity, you’ll use it in this course as it plays well with React.
+
+#### Tip!
+
+If you aren't experienced with JavaScript, we recommend you code along and use **JSX** in your React code, too. You’ll learn the boundaries between **JSX** and **JavaScript** with continued practice and experience.
 
 ## Key Terms
 
@@ -430,52 +483,10 @@ Below is a list and short description of the important keywords you have learned
 
 ## Lesson 1 Practice Hands-On
 
-
-
-
-
-### Requirements
-
-Write the React code needed to render the equivalent of the below `HTML` favorite things list. Add the code for the following requirements within the `src/index.js` file:
-
-1. Based on the below list, keep the sections the same (i.e., Favorite Colors, Favorite Websites, etc.), but feel free to fill it in with your personal favorite things.
-
-2. The list of your Favorite Websites should navigate the user to those specific websites, as you can below.
-
-3. You should have three different websites listed under "Favorite Websites".
-
-4. Add a class name to each of the subtopics (i.e., Favorite Colors, Favorite Websites, etc.). The class names should relate to their respective favorite thing topic.
-
-- For example, the Favorite Colors section should have a class name of something similar to "`favoriteColors`".
-
-5. Use Variables in some way
-
-### Example
-
-When you are done, it should look similar, but not exactly the same as the example below. Notice the use of `unordered` and `ordered` lists:
-
-## My Favorite Things
-
-- Favorite Colors
-  1. Green
-  2. Blue
-  3. Red
-- Favorite Music
-  1. Regina Spektor
-  2. Antonín Dvořák
-  3. Radiohead
-- Favorite Food
-  1. Pizza
-  2. Ceasar Salad
-  3. Gnocchi
-- Favorite Websites
-  1. [www.google.com](https://www.google.com/)
-  2. [www.facebook.com](https://www.facebook.com/)
-  3. [www.instagram.com](https://www.instagram.com/)
-
-#### Tip!
-
-Remember; you can only have one parent element!
+1. Start at "`Create folder for course`"
+2. Code along with all instructions.
+3. Save frequently.
+4. Submit final `app-1.js` and `index.html`
 
 #### Caution!
 
@@ -489,4 +500,48 @@ Be sure to zip and submit your entire `L01HandsOn` directory when finished!
 
 ## Solution
 
-Remains Same as Existing One
+**app-1.js final**
+
+```
+class ProductList extends React.Component {
+  render() {
+    return (
+      <div className='ui unstackable items'>
+        Hello, friend! I am a basic React component.
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <ProductList />,
+  document.getElementById('content')
+);
+```
+
+**index.html final**
+
+```
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Project One</title>
+    <link rel="stylesheet" href="./semantic-dist/semantic.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="vendor/babel-standalone.js"></script>
+    <script src="vendor/react.js"></script>
+    <script src="vendor/react-dom.js"></script>
+  </head>
+
+  <body>
+    <div class="main ui text container">
+      <h1 class="ui dividing centered header">Popular Products</h1>
+      <div id="content"></div>
+    </div>
+    <script src="./js/seed.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
+```
